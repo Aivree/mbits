@@ -20,8 +20,8 @@ function onYouTubeIframeAPIReadyx(){
 	ctrlq.appendChild(div);
 
 	var toggleButton = function (play) {
-		var img = play ? "S4qbDDC" : "EChF4R0";
-		icon.setAttribute("src","https://i.imgur.com/"+ img);
+		var img = play ? "YCdmjn5J/S4qbDDC.png" : "MGXfB0xX/EChF4R0.png";
+		icon.setAttribute("src","https://i.postimg.cc/"+ img);
 	}
 	
 	
