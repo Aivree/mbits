@@ -7,43 +7,54 @@
  Edit: change img files link deleted
 */
 
-function onYouTubeIframeAPIReady(){
- 
- var e=document.getElementById("youtube-audio");
- 
- var t=document.createElement("img");
- t.setAttribute("id","youtube-icon");
- t.style.cssText="cursor:pointer;cursor:hand";
- e.appendChild(t);
+function onYouTubeIframeAPIReadyx(){
+	var ctrlq = document.getElementById("youtube-audio");
 
- var a=document.createElement("div");
- a.setAttribute("id","youtube-player");
- e.appendChild(a);
+	var icon = document.createElement("img");
+	icon.setAttribute("id","youtube-icon");
+	icon.style.cssText = ("cursor:pointer;cursor:hand");
+	ctrlq.appendChild(icon);
 
- var o=function(e){
- 	var a=e ? "S4qbDDC" : "S4qbDDC";
- 	t.setAttribute("src","https://i.imgur.com//"+a);
- };
+	var div = document.createElement("div");
+	icon.setAttribute("id","youtube-player");
+	ctrlq.appendChild(div);
 
- e.onclick=function(){
- 	if ( r.getPlayerState()===YT.PlayerState.PLAYING
- 		||r.getPlayerState()===YT.PlayerState.BUFFERING ? 
- 		(r.pauseVideo(),o(!1)) : (r.playVideo(),o(!0))};
+	var toggleButton = function (play) {
+		var img = play ? "S4qbDDC.png" : "EChF4R0.png";
+		icon.setAttribute("src","https://i.imgur.com/"+ img);
+	}
+	
+	
+	ctrlq.onclick = function () {
 
+		if ( player.getPlayerState() === YT.PlayerState.PLAYING
+			|| player.PlayerState() === YT.PlayerState.BUFFERING
+			player.pauseVideo();
+			toggleButton(false);
+		} else {
+			player.pauseVideo();
+			toggleButton(true);
+		}
+	};
 
-var r=new YT.Player("youtube-player", {
-	height:"0",
-	width:"0",
-	videoId:e.dataset.video,
-	playerVars:{
-		autoplay:e.dataset.autoplay,
-		loop:e.dataset.loop
+	var player = new YT.player('youtube-player'),{
+		height: '0',
+		width:'0',
+		videoId: ctrlq.dataset.video,
+		PlayerVars: {
+			autoplay: ctrlq.dataset.video;
+			loop: ctrlq.dataset.loop;
 	},
-
-	events:{
-		onReady:function(e){
-			r.setPlaybackQuality("small");
-			o(r.getPlayerState()!==YT.PlayerState.CUED)
-		},
-		onStateChange:function(e){
-			e.data===YT.PlayerState.ENDED&&o(!1)}}}});}
+	events: {
+		'onReady': function(e) {
+			player.setPlaybackQuality("small");
+			toggleButton(player.getPlayerState() !== YT.PlayerState.CUED);
+		}.
+		'onStateChange': function(e){
+		if(e.data === YT.PlayerState.ENDED){
+			toggleButton(false)
+		} 	
+	}
+}
+});
+	} 
