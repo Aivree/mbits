@@ -20,7 +20,7 @@ function onYouTubeIframeAPIReadyx(){
 	ctrlq.appendChild(div);
 
 	var toggleButton = function (play) {
-		var img = play ? "S4qbDDC.png" : "EChF4R0.png";
+		var img = play ? "S4qbDDC" : "EChF4R0";
 		icon.setAttribute("src","https://i.imgur.com/"+ img);
 	}
 	
